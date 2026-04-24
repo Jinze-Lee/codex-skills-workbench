@@ -1,0 +1,5 @@
+﻿interface:
+  display_name: "Shell Choice Guide"
+  short_description: "Choose PowerShell or Git Bash on Windows."
+  default_prompt: "Use $shell-choice-guide only when the user explicitly asks for this exact shell-selection guide."
+

@@ -1,0 +1,5 @@
+﻿interface:
+  display_name: "Weighted Regression Plot"
+  short_description: "Make weighted regression plots with styled cues."
+  default_prompt: "Use $weighted-regression-plot only when the user explicitly asks for this exact weighted-regression plotting guide."
+

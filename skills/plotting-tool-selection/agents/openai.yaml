@@ -1,0 +1,5 @@
+﻿interface:
+  display_name: "Plotting Tool Selection"
+  short_description: "Choose R versus Python for plotting tasks."
+  default_prompt: "Use $plotting-tool-selection only when the user explicitly asks for this exact tool-selection guide."
+

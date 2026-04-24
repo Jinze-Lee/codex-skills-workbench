@@ -1,0 +1,5 @@
+﻿interface:
+  display_name: "Significance Group Scatter"
+  short_description: "Make grouped scatterplots with significance emphasis."
+  default_prompt: "Use $significance-group-scatter only when the user explicitly asks for this exact grouped-scatter guide."
+

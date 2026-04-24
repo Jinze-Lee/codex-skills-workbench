@@ -1,0 +1,122 @@
+[
+  {
+    "category": "Environment And Operations",
+    "sourceFile": "shell-choice-guide.md",
+    "displayName": "Shell Choice Guide",
+    "skillName": "shell-choice-guide",
+    "skillDir": "shell-choice-guide",
+    "useWhen": "Choose the safest shell for Windows, Git, R/Python, file operations, or desktop automation tasks."
+  },
+  {
+    "category": "Environment And Operations",
+    "sourceFile": "r-python-runtime-guide.md",
+    "displayName": "R Python Runtime Guide",
+    "skillName": "r-python-runtime-guide",
+    "skillDir": "r-python-runtime-guide",
+    "useWhen": "Discover and invoke R/Python runtimes without hard-coding machine-specific paths."
+  },
+  {
+    "category": "Environment And Operations",
+    "sourceFile": "method-transfer-guide.md",
+    "displayName": "Method Transfer Guide",
+    "skillName": "method-transfer-guide",
+    "skillDir": "method-transfer-guide",
+    "useWhen": "Move an analysis method, plotting pattern, or automation workflow into a new project safely."
+  },
+  {
+    "category": "Presentation And Reporting",
+    "sourceFile": "ppt-production-guide.md",
+    "displayName": "PPT Production Guide",
+    "skillName": "ppt-production-guide",
+    "skillDir": "ppt-production-guide",
+    "useWhen": "Build PowerPoint decks, custom image walls, report slides, and ask whether to show visible PowerPoint COM generation."
+  },
+  {
+    "category": "Presentation And Reporting",
+    "sourceFile": "literature-synthesis-guide.md",
+    "displayName": "Literature Synthesis",
+    "skillName": "literature-synthesis-guide",
+    "skillDir": "literature-synthesis-guide",
+    "useWhen": "Summarize papers into evidence tables, thematic synthesis, or citation-ready narrative notes."
+  },
+  {
+    "category": "Plotting And Visualization",
+    "sourceFile": "plotting-tool-selection.md",
+    "displayName": "Plotting Tool Selection",
+    "skillName": "plotting-tool-selection",
+    "skillDir": "plotting-tool-selection",
+    "useWhen": "Decide whether a figure should be made with R, Python, PowerPoint, vector tools, or spreadsheets."
+  },
+  {
+    "category": "Plotting And Visualization",
+    "sourceFile": "ggplot2-richtext-fixes.md",
+    "displayName": "ggplot2 Richtext Fixes",
+    "skillName": "ggplot2-richtext-fixes",
+    "skillDir": "ggplot2-richtext-fixes",
+    "useWhen": "Fix ggplot2 labels, superscripts, subscripts, Markdown/HTML labels, or export rendering issues."
+  },
+  {
+    "category": "Plotting And Visualization",
+    "sourceFile": "r-scatter-plot-spec.md",
+    "displayName": "R Scatter Plot Spec",
+    "skillName": "r-scatter-plot-spec",
+    "skillDir": "r-scatter-plot-spec",
+    "useWhen": "Create reproducible R scatterplots with regression, grouping, export, and statistics."
+  },
+  {
+    "category": "Plotting And Visualization",
+    "sourceFile": "trait-environment-scatterplots.md",
+    "displayName": "Trait Environment Scatterplots",
+    "skillName": "trait-environment-scatterplots",
+    "skillDir": "trait-environment-scatterplots",
+    "useWhen": "Create trait-environment or response-predictor scatterplots with grouping and model interpretation."
+  },
+  {
+    "category": "Plotting And Visualization",
+    "sourceFile": "significance-group-scatter.md",
+    "displayName": "Significance Group Scatter",
+    "skillName": "significance-group-scatter",
+    "skillDir": "significance-group-scatter",
+    "useWhen": "Emphasize statistically supported groups in grouped scatterplots while preserving context."
+  },
+  {
+    "category": "Plotting And Visualization",
+    "sourceFile": "raincloud-plot-guide.md",
+    "displayName": "Raincloud Plot Guide",
+    "skillName": "raincloud-plot-guide",
+    "skillDir": "raincloud-plot-guide",
+    "useWhen": "Build raincloud plots that combine distributions, raw points, intervals, and summary markers."
+  },
+  {
+    "category": "Plotting And Visualization",
+    "sourceFile": "weighted-regression-plot.md",
+    "displayName": "Weighted Regression Plot",
+    "skillName": "weighted-regression-plot",
+    "skillDir": "weighted-regression-plot",
+    "useWhen": "Create weighted regression plots with interpretable weights, uncertainty, and visual encodings."
+  },
+  {
+    "category": "Data Processing And Modeling",
+    "sourceFile": "weighted-data-pipeline.md",
+    "displayName": "Weighted Data Pipeline",
+    "skillName": "weighted-data-pipeline",
+    "skillDir": "weighted-data-pipeline",
+    "useWhen": "Run an end-to-end weighted data workflow from cleaning and merging through models and figures."
+  },
+  {
+    "category": "Ecology And Evolution",
+    "sourceFile": "hypervolume-workflow.md",
+    "displayName": "Hypervolume Workflow",
+    "skillName": "hypervolume-workflow",
+    "skillDir": "hypervolume-workflow",
+    "useWhen": "Analyze ecological niche, trait-space, hypervolume, overlap, or centroid-distance questions."
+  },
+  {
+    "category": "Ecology And Evolution",
+    "sourceFile": "phylogeny-workflow.md",
+    "displayName": "Phylogeny Workflow",
+    "skillName": "phylogeny-workflow",
+    "skillDir": "phylogeny-workflow",
+    "useWhen": "Match trait data to phylogenetic trees, prune trees, visualize trees, or run comparative analyses."
+  }
+]

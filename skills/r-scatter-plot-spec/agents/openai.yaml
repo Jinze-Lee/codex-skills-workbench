@@ -1,0 +1,5 @@
+﻿interface:
+  display_name: "R Scatter Plot Spec"
+  short_description: "Follow the R scatter-linear plotting spec."
+  default_prompt: "Use $r-scatter-plot-spec only when the user explicitly asks for this exact R scatter spec."
+

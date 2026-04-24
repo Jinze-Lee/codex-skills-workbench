@@ -1,0 +1,5 @@
+﻿interface:
+  display_name: "Raincloud Plot Guide"
+  short_description: "Build raincloud plots from the stored workflow."
+  default_prompt: "Use $raincloud-plot-guide only when the user explicitly asks for this exact raincloud-plot guide."
+

@@ -1,0 +1,5 @@
+﻿interface:
+  display_name: "Phylogeny Workflow"
+  short_description: "Run the phylogeny signal and tree workflow."
+  default_prompt: "Use $phylogeny-workflow only when the user explicitly asks for this exact phylogeny workflow."
+

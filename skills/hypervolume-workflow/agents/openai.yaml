@@ -1,0 +1,5 @@
+﻿interface:
+  display_name: "Hypervolume Workflow"
+  short_description: "Follow the niche hypervolume analysis workflow."
+  default_prompt: "Use $hypervolume-workflow only when the user explicitly asks for this exact hypervolume workflow."
+

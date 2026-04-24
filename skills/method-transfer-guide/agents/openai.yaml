@@ -1,0 +1,5 @@
+﻿interface:
+  display_name: "Method Transfer Guide"
+  short_description: "Transfer methods without copying stale details."
+  default_prompt: "Use $method-transfer-guide only when the user explicitly asks for this exact method-transfer guide."
+

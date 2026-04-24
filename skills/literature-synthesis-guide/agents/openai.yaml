@@ -1,0 +1,5 @@
+﻿interface:
+  display_name: "Literature Synthesis"
+  short_description: "Synthesize literature from a local library."
+  default_prompt: "Use $literature-synthesis-guide only when the user explicitly asks for this exact literature-synthesis guide."
+

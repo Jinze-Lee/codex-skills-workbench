@@ -1,0 +1,5 @@
+﻿interface:
+  display_name: "PPT Production Guide"
+  short_description: "Build PPT decks, custom image walls, and optional visible PowerPoint COM workflows."
+  default_prompt: "Use $ppt-production-guide only when explicitly requested. Ask whether to show visible PowerPoint desktop generation before building the deck."
+

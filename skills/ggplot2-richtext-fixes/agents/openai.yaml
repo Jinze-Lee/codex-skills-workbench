@@ -1,0 +1,5 @@
+﻿interface:
+  display_name: "ggplot2 Richtext Fixes"
+  short_description: "Fix ggplot2 superscript and richtext issues."
+  default_prompt: "Use $ggplot2-richtext-fixes only when the user explicitly asks for this exact ggplot2 text-rendering guide."
+

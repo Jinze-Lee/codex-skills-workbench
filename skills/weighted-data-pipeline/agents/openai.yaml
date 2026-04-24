@@ -1,0 +1,5 @@
+﻿interface:
+  display_name: "Weighted Data Pipeline"
+  short_description: "Follow the weighted data-processing pipeline."
+  default_prompt: "Use $weighted-data-pipeline only when the user explicitly asks for this exact weighted-data pipeline guide."
+

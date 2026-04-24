@@ -1,0 +1,5 @@
+﻿interface:
+  display_name: "Trait Environment Scatterplots"
+  short_description: "Build trait-environment scatterplots with grouping and regression."
+  default_prompt: "Use $trait-environment-scatterplots only when the user explicitly asks for this exact trait-environment scatterplot guide."
+

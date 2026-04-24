@@ -1,0 +1,5 @@
+﻿interface:
+  display_name: "R Python Runtime Guide"
+  short_description: "Use the stored R and Python runtime paths."
+  default_prompt: "Use $r-python-runtime-guide only when the user explicitly asks for this exact runtime guide."
+
