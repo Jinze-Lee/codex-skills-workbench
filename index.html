@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Codex Skills Workbench | 科研自动化 Skill 展示台</title>
+  <meta name="description" content="展示 Codex Skills Workbench 中每个 skill 的功能、适用场景和调用方式。" />
+  <style>
+    :root {
+      --bg: #07111f;
+      --panel: rgba(255, 255, 255, .08);
+      --panel-strong: rgba(255, 255, 255, .13);
+      --text: #edf5ff;
+      --muted: #9eb2ca;
+      --line: rgba(255, 255, 255, .16);
+      --cyan: #70e1ff;
+      --green: #8dffbf;
+      --violet: #b99cff;
+      --amber: #ffd27a;
+      --rose: #ff9db8;
+      --shadow: 0 24px 80px rgba(0, 0, 0, .38);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", sans-serif;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 15% 10%, rgba(112, 225, 255, .28), transparent 28%),
+        radial-gradient(circle at 85% 18%, rgba(185, 156, 255, .26), transparent 30%),
+        radial-gradient(circle at 50% 95%, rgba(141, 255, 191, .16), transparent 34%),
+        linear-gradient(135deg, #06111f 0%, #0b1222 44%, #101827 100%);
+      min-height: 100vh;
+    }
+    a { color: inherit; text-decoration: none; }
+    .wrap { width: min(1180px, calc(100% - 36px)); margin: 0 auto; }
+    header { padding: 34px 0 18px; position: sticky; top: 0; backdrop-filter: blur(18px); background: linear-gradient(to bottom, rgba(7, 17, 31, .86), rgba(7, 17, 31, .42)); z-index: 10; border-bottom: 1px solid rgba(255,255,255,.06); }
+    nav { display: flex; justify-content: space-between; align-items: center; gap: 18px; }
+    .brand { display: flex; align-items: center; gap: 12px; font-weight: 800; letter-spacing: .2px; }
+    .logo { width: 42px; height: 42px; border-radius: 14px; background: linear-gradient(135deg, var(--cyan), var(--violet)); display: grid; place-items: center; box-shadow: 0 0 38px rgba(112,225,255,.34); color: #06111f; font-weight: 900; }
+    .navlinks { display: flex; flex-wrap: wrap; gap: 10px; color: var(--muted); font-size: 14px; }
+    .navlinks a { padding: 8px 12px; border: 1px solid var(--line); border-radius: 999px; background: rgba(255,255,255,.04); }
+    .hero { padding: 78px 0 52px; display: grid; grid-template-columns: 1.12fr .88fr; gap: 34px; align-items: center; }
+    .eyebrow { color: var(--green); font-weight: 700; letter-spacing: .16em; text-transform: uppercase; font-size: 12px; }
+    h1 { font-size: clamp(40px, 7vw, 76px); line-height: .98; margin: 18px 0 22px; letter-spacing: -2.6px; }
+    .lead { color: #c7d7ea; font-size: 19px; line-height: 1.8; margin: 0 0 28px; max-width: 760px; }
+    .cta { display: flex; flex-wrap: wrap; gap: 12px; }
+    .btn { padding: 13px 18px; border-radius: 15px; border: 1px solid var(--line); background: rgba(255,255,255,.07); font-weight: 700; }
+    .btn.primary { background: linear-gradient(135deg, var(--cyan), var(--green)); color: #06111f; border: 0; box-shadow: 0 12px 40px rgba(112,225,255,.2); }
+    .terminal { border: 1px solid var(--line); background: rgba(4, 9, 18, .72); border-radius: 24px; box-shadow: var(--shadow); overflow: hidden; }
+    .terminal-top { display: flex; gap: 8px; padding: 14px 16px; border-bottom: 1px solid var(--line); background: rgba(255,255,255,.05); }
+    .dot { width: 11px; height: 11px; border-radius: 999px; background: var(--rose); }
+    .dot:nth-child(2) { background: var(--amber); } .dot:nth-child(3) { background: var(--green); }
+    pre { margin: 0; padding: 22px; white-space: pre-wrap; color: #d8e7f8; line-height: 1.65; font-size: 14px; }
+    .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin: 14px 0 42px; }
+    .stat { padding: 20px; border-radius: 20px; background: var(--panel); border: 1px solid var(--line); }
+    .stat strong { font-size: 30px; display: block; }
+    .section-title { margin: 64px 0 18px; display: flex; justify-content: space-between; align-items: end; gap: 18px; }
+    h2 { font-size: clamp(28px, 4vw, 44px); margin: 0; letter-spacing: -1.4px; }
+    .section-title p { color: var(--muted); margin: 0; max-width: 560px; line-height: 1.65; }
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .card { position: relative; overflow: hidden; padding: 22px; min-height: 255px; border-radius: 24px; border: 1px solid var(--line); background: linear-gradient(180deg, rgba(255,255,255,.105), rgba(255,255,255,.055)); box-shadow: 0 18px 48px rgba(0,0,0,.18); }
+    .card::before { content: ""; position: absolute; inset: -80px -70px auto auto; width: 160px; height: 160px; border-radius: 50%; background: var(--accent); opacity: .23; filter: blur(4px); }
+    .tag { display: inline-flex; padding: 7px 10px; border-radius: 999px; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.12); color: #d8e7f8; font-size: 12px; }
+    .card h3 { margin: 18px 0 9px; font-size: 22px; letter-spacing: -.5px; }
+    .invoke { display: inline-block; margin: 0 0 14px; padding: 7px 10px; border-radius: 10px; background: rgba(0,0,0,.28); color: var(--green); font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 13px; }
+    .card p { color: #bfd0e5; line-height: 1.68; margin: 0 0 15px; }
+    .points { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+    .points span { color: #d8e7f8; border: 1px solid rgba(255,255,255,.12); background: rgba(255,255,255,.06); border-radius: 999px; padding: 6px 9px; font-size: 12px; }
+    .workflow { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 68px; }
+    .step { padding: 22px; border-radius: 22px; border: 1px solid var(--line); background: var(--panel); }
+    .step b { color: var(--cyan); font-size: 13px; letter-spacing: .12em; text-transform: uppercase; }
+    .step h3 { margin: 12px 0 8px; }
+    .step p { color: var(--muted); line-height: 1.65; margin: 0; }
+    footer { border-top: 1px solid var(--line); color: var(--muted); padding: 28px 0 46px; }
+    @media (max-width: 900px) { .hero { grid-template-columns: 1fr; padding-top: 48px; } .grid { grid-template-columns: 1fr 1fr; } .stats, .workflow { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 620px) { header { position: static; } .grid, .stats, .workflow { grid-template-columns: 1fr; } .section-title { display: block; } h1 { letter-spacing: -1.4px; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <nav>
+        <div class="brand"><div class="logo">Cx</div><span>Codex Skills Workbench</span></div>
+        <div class="navlinks">
+          <a href="#skills">Skills</a><a href="#workflow">Workflow</a><a href="https://github.com/Jinze-Lee/codex-skills-workbench">GitHub</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <div>
+        <div class="eyebrow">Research Automation Toolkit</div>
+        <h1>把零散科研流程，整理成可调用的 Codex Skills。</h1>
+        <p class="lead">这是一个面向科研写作、数据分析、生态学建模、系统发育、作图和 PowerPoint 汇报的 skill 工作台。每个 skill 都封装一套明确的操作规范：什么时候用、怎么调用、如何避免复制旧路径和旧变量名。</p>
+        <div class="cta">
+          <a class="btn primary" href="#skills">查看全部 Skills</a>
+          <a class="btn" href="https://github.com/Jinze-Lee/codex-skills-workbench">打开 GitHub 仓库</a>
+        </div>
+      </div>
+      <div class="terminal" aria-label="Codex invocation examples">
+        <div class="terminal-top"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+        <pre>$hypervolume-workflow
+分析生态位体积、重叠和质心距离
+
+$phylogeny-workflow
+匹配性状数据与系统发育树
+
+$trait-environment-scatterplots
+生成性状-环境关系图与模型解释</pre>
+      </div>
+    </section>
+
+    <section class="stats" aria-label="Repository summary">
+      <div class="stat"><strong>15</strong><span>个可安装 skill</span></div>
+      <div class="stat"><strong>5</strong><span>类科研工作流</span></div>
+      <div class="stat"><strong>1</strong><span>统一 manifest 管理</span></div>
+      <div class="stat"><strong>∞</strong><span>可复用分析场景</span></div>
+    </section>
+
+    <section id="skills">
+      <div class="section-title">
+        <h2>Skill 功能展示</h2>
+        <p>每张卡片对应一个 skill：包含调用名、核心用途和适合展示给别人的功能亮点。</p>
+      </div>
+      <div class="grid">
+        <article class="card" style="--accent: var(--cyan)"><span class="tag">Environment And Operations</span><h3>Shell Choice Guide</h3><code class="invoke">$shell-choice-guide</code><p>判断 Windows、Git、R/Python、文件操作或桌面自动化任务该用哪个 shell，减少路径和命令环境错误。</p><div class="points"><span>PowerShell</span><span>Git Bash</span><span>路径安全</span></div></article>
+        <article class="card" style="--accent: var(--green)"><span class="tag">Environment And Operations</span><h3>R Python Runtime Guide</h3><code class="invoke">$r-python-runtime-guide</code><p>发现和调用 R/Python 运行时，避免写死机器路径，让脚本在不同电脑和项目中更稳定。</p><div class="points"><span>Rscript</span><span>Python</span><span>可复现运行</span></div></article>
+        <article class="card" style="--accent: var(--amber)"><span class="tag">Environment And Operations</span><h3>Method Transfer Guide</h3><code class="invoke">$method-transfer-guide</code><p>把一个方法、作图模式或自动化流程迁移到新项目，只迁移方法逻辑，不盲目复制旧路径。</p><div class="points"><span>方法迁移</span><span>变量映射</span><span>小样本测试</span></div></article>
+        <article class="card" style="--accent: var(--violet)"><span class="tag">Presentation And Reporting</span><h3>PPT Production Guide</h3><code class="invoke">$ppt-production-guide</code><p>生成 PowerPoint、图表汇报页和自定义图墙，并支持可见地逐页生成演示文稿。</p><div class="points"><span>PPT</span><span>图墙</span><span>汇报排版</span></div></article>
+        <article class="card" style="--accent: var(--rose)"><span class="tag">Presentation And Reporting</span><h3>Literature Synthesis</h3><code class="invoke">$literature-synthesis-guide</code><p>把文献整理成证据表、主题综合、研究空白和可引用叙述，强调结论可追溯。</p><div class="points"><span>证据表</span><span>综述</span><span>研究空白</span></div></article>
+        <article class="card" style="--accent: var(--cyan)"><span class="tag">Plotting And Visualization</span><h3>Plotting Tool Selection</h3><code class="invoke">$plotting-tool-selection</code><p>判断图该用 R、Python、PowerPoint、矢量工具还是表格软件，先选路线再动手作图。</p><div class="points"><span>工具选择</span><span>作图路线</span><span>质量控制</span></div></article>
+        <article class="card" style="--accent: var(--green)"><span class="tag">Plotting And Visualization</span><h3>ggplot2 Richtext Fixes</h3><code class="invoke">$ggplot2-richtext-fixes</code><p>修复 ggplot2 上标、下标、富文本、数学符号、斜体物种名和导出渲染问题。</p><div class="points"><span>ggplot2</span><span>富文本</span><span>导出测试</span></div></article>
+        <article class="card" style="--accent: var(--amber)"><span class="tag">Plotting And Visualization</span><h3>R Scatter Plot Spec</h3><code class="invoke">$r-scatter-plot-spec</code><p>做可复现的 R 散点图，配套数据检查、回归线、统计结果和图像导出。</p><div class="points"><span>散点图</span><span>回归</span><span>批量导出</span></div></article>
+        <article class="card" style="--accent: var(--violet)"><span class="tag">Plotting And Visualization</span><h3>Trait Environment Scatterplots</h3><code class="invoke">$trait-environment-scatterplots</code><p>生成性状-环境、响应-预测变量或分组散点图，并配套模型选择与解释。</p><div class="points"><span>性状-环境</span><span>分组趋势</span><span>模型解释</span></div></article>
+        <article class="card" style="--accent: var(--rose)"><span class="tag">Plotting And Visualization</span><h3>Significance Group Scatter</h3><code class="invoke">$significance-group-scatter</code><p>在分组散点图里强调有统计支持的组，同时保留其他组作为背景，避免只展示显著结果。</p><div class="points"><span>显著性强调</span><span>效应量</span><span>背景组</span></div></article>
+        <article class="card" style="--accent: var(--cyan)"><span class="tag">Plotting And Visualization</span><h3>Raincloud Plot Guide</h3><code class="invoke">$raincloud-plot-guide</code><p>制作雨云图，组合分布形状、原始点、箱线图或区间和均值/中位数。</p><div class="points"><span>分布</span><span>原始点</span><span>组间比较</span></div></article>
+        <article class="card" style="--accent: var(--green)"><span class="tag">Plotting And Visualization</span><h3>Weighted Regression Plot</h3><code class="invoke">$weighted-regression-plot</code><p>做加权回归图，处理权重含义、不确定性、视觉编码，并避免把相关误读为因果。</p><div class="points"><span>加权回归</span><span>权重解释</span><span>不确定性</span></div></article>
+        <article class="card" style="--accent: var(--amber)"><span class="tag">Data Processing And Modeling</span><h3>Weighted Data Pipeline</h3><code class="invoke">$weighted-data-pipeline</code><p>从清洗、合并、权重计算到模型和图表的完整加权数据流程，适合多文件分析项目。</p><div class="points"><span>数据清洗</span><span>权重计算</span><span>流程留痕</span></div></article>
+        <article class="card" style="--accent: var(--violet)"><span class="tag">Ecology And Evolution</span><h3>Hypervolume Workflow</h3><code class="invoke">$hypervolume-workflow</code><p>分析生态位、性状空间、hypervolume、重叠矩阵和质心距离，适合生态位宽度问题。</p><div class="points"><span>生态位</span><span>重叠</span><span>质心距离</span></div></article>
+        <article class="card" style="--accent: var(--rose)"><span class="tag">Ecology And Evolution</span><h3>Phylogeny Workflow</h3><code class="invoke">$phylogeny-workflow</code><p>匹配性状数据和系统发育树，完成修剪树、可视化、性状映射和比较分析。</p><div class="points"><span>系统发育</span><span>物种匹配</span><span>比较分析</span></div></article>
+      </div>
+    </section>
+
+    <section id="workflow">
+      <div class="section-title">
+        <h2>推荐使用流程</h2>
+        <p>这个网页适合给别人快速理解仓库价值；真正使用时，仍然应以每个 skill 的 SKILL.md 和 references/source-note.md 为准。</p>
+      </div>
+      <div class="workflow">
+        <div class="step"><b>Step 01</b><h3>选择任务类型</h3><p>先判断是环境配置、文献综合、作图、建模，还是生态/进化专项分析。</p></div>
+        <div class="step"><b>Step 02</b><h3>复制调用名</h3><p>把对应的 <code>$skill-name</code> 发给 Codex，让它读取 skill 的工作流规则。</p></div>
+        <div class="step"><b>Step 03</b><h3>替换当前数据</h3><p>把旧路径、旧变量、旧阈值替换成当前项目中的真实文件和变量。</p></div>
+        <div class="step"><b>Step 04</b><h3>输出可复现结果</h3><p>保留脚本、图表、统计结果和处理日志，方便后续复查和复用。</p></div>
+      </div>
+    </section>
+  </main>
+  <footer><div class="wrap">Codex Skills Workbench · Built for reusable research automation workflows.</div></footer>
+</body>
+</html>
