@@ -45,6 +45,12 @@ codex-skills-workbench/
 | PPT Production Guide | `$ppt-production-guide` | 生成 PowerPoint、构建自定义图墙，并先询问是否要打开 PowerPoint 桌面版显示逐步生成过程。 |
 | Literature Synthesis | `$literature-synthesis-guide` | 把文献整理成证据表、主题综合或可引用的叙述性总结。 |
 
+### Research And Literature
+
+| Skill | 调用名 | 什么时候用 |
+| --- | --- | --- |
+| Keyword Literature Download | `$keyword-literature-download` | 按关键词检索学术数据库，下载合法开放 PDF，缓存 HTML/XML 辅助文件，并对 PDF 去重。 |
+
 ### Plotting And Visualization
 
 | Skill | 调用名 | 什么时候用 |
@@ -101,6 +107,38 @@ codex-skills-workbench/
 调用名：`$literature-synthesis-guide`
 
 这个 skill 用于文献总结和证据综合。它会先明确研究问题、文献范围、纳入排除标准和输出格式，然后从文献中提取研究对象、方法、样本量、变量、主要结果和局限。输出可以是证据表、主题归纳、研究空白、可引用段落或报告提纲。它强调所有结论都要能追溯到具体文献，不凭空编造引用。
+
+### Keyword Literature Download
+
+调用名：`$keyword-literature-download`
+
+这个 skill 用于围绕任意关键词批量检索学术文献，并尽可能下载当前网络环境中可合法访问的 PDF。它会调用 PubMed/PMC、Europe PMC、Crossref 和 OpenAlex，先生成不预先去重的候选文献表，再根据关键词命中、文献类型、开放访问状态等信息给记录排序，随后并发下载 PDF。下载不到 PDF 但能访问 HTML/XML 时，它会把这些辅助文件放入单独缓存目录，后续再尝试从网页里追踪 PDF 链接；PDF 输出目录始终只保存通过 PDF 签名检查的 `.pdf` 文件。
+
+基本使用方法：
+
+1. 进入 `skills/keyword-literature-download/` 目录。
+2. 复制 `references/config_template.json` 为自己的配置文件，例如 `my_topic_config.json`。
+3. 修改配置中的 `queries`、`include_terms`、`secondary_terms` 和 `exclude_terms`。
+4. 启动新任务：
+
+```powershell
+python .\scripts\run_keyword_harvest_no_dedup.py `
+  --output-root ".\runs" `
+  --config ".\my_topic_config.json" `
+  --run-name "my_topic_001" `
+  --pdf-output-dir ".\pdfs\my_topic" `
+  --download-workers 8
+```
+
+5. 中断后续跑、HTML 二次追 PDF、去重：
+
+```powershell
+python .\scripts\continue_download_and_dedup.py `
+  --run-root ".\runs\my_topic_001" `
+  --retry-failed
+```
+
+常见输出包括 `keyword_research_candidate_table.csv`、高/中优先级候选表、下载日志、HTML 二次追踪日志、`keyword_research_dedup_manifest.csv` 和去重后的 PDF 文件夹。更详细的中文说明见 [skills/keyword-literature-download/README.md](skills/keyword-literature-download/README.md)。这个 skill 只下载合法开放访问文件，不绕过付费墙；访问失败、断链、限流和超时都会保留在日志中。
 
 ### Plotting Tool Selection
 

@@ -1,0 +1,4 @@
+version: 1
+display_name: 文献获取
+short_description: Search scholarly APIs for any keyword set, download PDFs quickly into a PDF-only folder, and deduplicate the results.
+default_prompt: Run a new keyword-driven research-article harvest in my local project, save PDFs into a PDF-only output folder, then continue downloads, try HTML-to-PDF second pass from the auxiliary cache, and deduplicate the PDF files.

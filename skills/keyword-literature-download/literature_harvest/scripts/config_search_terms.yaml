@@ -1,0 +1,66 @@
+{
+  "tool_name": "keyword_research_harvest",
+  "email": "",
+  "sources": {
+    "pubmed": true,
+    "pmc": true,
+    "europepmc": true,
+    "crossref": true,
+    "openalex": true
+  },
+  "max_results_per_query": {
+    "pubmed": 100,
+    "pmc": 100,
+    "europepmc": 100,
+    "crossref": 100,
+    "openalex": 100
+  },
+  "page_size": {
+    "europepmc": 100,
+    "crossref": 100,
+    "openalex": 100
+  },
+  "delay_seconds": {
+    "pubmed": 0.34,
+    "pmc": 0.34,
+    "europepmc": 0.34,
+    "crossref": 0.5,
+    "openalex": 0.34,
+    "download": 0.05
+  },
+  "download": {
+    "enabled": true,
+    "priority_levels": ["high", "medium"],
+    "timeout_seconds": 45,
+    "max_attempts_per_record": 3,
+    "workers": 8,
+    "pdf_output_dir": ""
+  },
+  "research_article_preference": true,
+  "exclude_reviews_by_default": false,
+  "include_terms": [
+    "example core keyword",
+    "example main concept"
+  ],
+  "secondary_terms": [
+    "example secondary keyword",
+    "example method keyword"
+  ],
+  "exclude_terms": [
+    "editorial",
+    "commentary",
+    "news",
+    "conference abstract",
+    "patent"
+  ],
+  "queries": [
+    {
+      "name": "topic_query_1",
+      "query": "example keyword 1"
+    },
+    {
+      "name": "topic_query_2",
+      "query": "example keyword 2"
+    }
+  ]
+}

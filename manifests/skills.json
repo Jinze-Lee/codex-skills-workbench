@@ -40,6 +40,14 @@
     "useWhen": "Summarize papers into evidence tables, thematic synthesis, or citation-ready narrative notes."
   },
   {
+    "category": "Research And Literature",
+    "sourceFile": "keyword-literature-download.md",
+    "displayName": "Keyword Literature Download",
+    "skillName": "keyword-literature-download",
+    "skillDir": "keyword-literature-download",
+    "useWhen": "Search scholarly APIs for keyword topics, download legally accessible PDFs, cache non-PDF helper files separately, and deduplicate results."
+  },
+  {
     "category": "Plotting And Visualization",
     "sourceFile": "plotting-tool-selection.md",
     "displayName": "Plotting Tool Selection",

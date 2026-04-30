@@ -21,6 +21,14 @@ Use these skills when the main output is a deck, report, or literature synthesis
 | PPT Production Guide | `$ppt-production-guide` | Build PowerPoint decks, custom image walls, report slides, and ask whether to show visible PowerPoint COM generation. |
 | Literature Synthesis | `$literature-synthesis-guide` | Summarize papers into evidence tables, thematic synthesis, or citation-ready narrative notes. |
 
+## Research And Literature
+
+Use these skills when the main task is discovering, harvesting, downloading, or organizing scholarly literature.
+
+| Skill | Invocation | Use when |
+| --- | --- | --- |
+| Keyword Literature Download | `$keyword-literature-download` | Search scholarly APIs for keyword topics, download legally accessible PDFs, cache non-PDF helper files separately, and deduplicate results. |
+
 ## Plotting And Visualization
 
 Use these skills when the main output is a figure or a figure-production decision.

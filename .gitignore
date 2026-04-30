@@ -9,9 +9,12 @@ desktop.ini
 *.log
 *.tmp
 *.bak
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
 ~$*
 
 # Generated local exports
 dist/
 _scratch/
-
