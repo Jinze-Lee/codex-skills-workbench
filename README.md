@@ -44,6 +44,7 @@ codex-skills-workbench/
 | --- | --- | --- |
 | PPT Production Guide | `$ppt-production-guide` | 生成 PowerPoint、构建自定义图墙，并先询问是否要打开 PowerPoint 桌面版显示逐步生成过程。 |
 | Literature Synthesis | `$literature-synthesis-guide` | 把文献整理成证据表、主题综合或可引用的叙述性总结。 |
+| Master Thesis Studio Skill | `$master-thesis-studio-skill` | 写作和生成中文硕士论文 Word 项目，支持显式调用、自选模板、图表、公式、参考文献和反解析。 |
 
 ### Research And Literature
 
@@ -107,6 +108,14 @@ codex-skills-workbench/
 调用名：`$literature-synthesis-guide`
 
 这个 skill 用于文献总结和证据综合。它会先明确研究问题、文献范围、纳入排除标准和输出格式，然后从文献中提取研究对象、方法、样本量、变量、主要结果和局限。输出可以是证据表、主题归纳、研究空白、可引用段落或报告提纲。它强调所有结论都要能追溯到具体文献，不凭空编造引用。
+
+### Master Thesis Studio Skill
+
+调用名：`$master-thesis-studio-skill`
+
+这个 skill 用于中文硕士论文写作、章节管理和 Word `.docx` 自动生成。它只在用户显式写出 `$master-thesis-studio-skill`，或明确说明要使用 Master Thesis Studio 时启用，不会因为普通论文写作或 Word 排版请求而自动触发。它会先确认题目、学科方向、研究对象、已有资产、写作模式和真实性边界，再初始化独立论文项目目录。
+
+它保留论文生成的完整执行链路：使用 Markdown 管理章节正文，用 `[[FIG:...]]`、`[[TBL:...]]`、`[[EQ:...]]`、`[[SYM:...]]`、`[[REF:n]]` 等占位符管理图、表、公式和引用；再把 Word 模板转换为 Flat OPC XML，写回正文结构并生成新的 `.docx`。默认模板是 `examples/Template.docx`，也可以通过 `--template <user_template.docx>` 使用用户自己的 `.docx` 或 `.dotx` 模板。更详细说明见 [skills/master-thesis-studio-skill/README.md](skills/master-thesis-studio-skill/README.md)。
 
 ### Keyword Literature Download
 

@@ -20,6 +20,7 @@ Use these skills when the main output is a deck, report, or literature synthesis
 | --- | --- | --- |
 | PPT Production Guide | `$ppt-production-guide` | Build PowerPoint decks, custom image walls, report slides, and ask whether to show visible PowerPoint COM generation. |
 | Literature Synthesis | `$literature-synthesis-guide` | Summarize papers into evidence tables, thematic synthesis, or citation-ready narrative notes. |
+| Master Thesis Studio Skill | `$master-thesis-studio-skill` | Write and generate Chinese master's thesis DOCX projects with explicit opt-in, Word templates, figures, tables, formulas, references, and reverse parsing. |
 
 ## Research And Literature
 
