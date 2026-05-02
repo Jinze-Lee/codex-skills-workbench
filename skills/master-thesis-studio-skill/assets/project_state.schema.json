@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Master Thesis Studio Project State",
+  "type": "object",
+  "required": ["version", "timestamp", "step", "thesis", "references"],
+  "properties": {
+    "version": { "type": "string" },
+    "timestamp": { "type": "string" },
+    "step": { "type": "string" },
+    "thesis": {
+      "type": "object",
+      "required": ["title", "chapters"],
+      "properties": {
+        "title": { "type": "string" },
+        "chapters": { "type": "array" }
+      },
+      "additionalProperties": true
+    },
+    "references": { "type": "array" },
+    "styleSettings": { "type": "object" }
+  },
+  "additionalProperties": true
+}
+

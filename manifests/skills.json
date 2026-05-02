@@ -40,6 +40,14 @@
     "useWhen": "Summarize papers into evidence tables, thematic synthesis, or citation-ready narrative notes."
   },
   {
+    "category": "Presentation And Reporting",
+    "sourceFile": "master-thesis-studio-skill.md",
+    "displayName": "Master Thesis Studio Skill",
+    "skillName": "master-thesis-studio-skill",
+    "skillDir": "master-thesis-studio-skill",
+    "useWhen": "Write and generate Chinese master's thesis DOCX projects with explicit opt-in, Word templates, figures, tables, formulas, references, and reverse parsing."
+  },
+  {
     "category": "Research And Literature",
     "sourceFile": "keyword-literature-download.md",
     "displayName": "Keyword Literature Download",
